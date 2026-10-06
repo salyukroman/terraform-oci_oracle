@@ -113,6 +113,19 @@ Before using this project, make sure you have:
 
 The OCI provider uses the `DEFAULT` profile from the local OCI configuration.
 
+## Configuration
+
+Example variable files are included in both Terraform directories:
+
+- `bootstrap/terraform.tfvars.example`
+- `infrastructure/terraform.tfvars.example`
+
+For a new environment, copy the example file and replace the placeholder values with your own OCI configuration.
+
+Do not overwrite an existing `terraform.tfvars` file in a live environment.
+
+Real `terraform.tfvars` files are excluded from Git through `.gitignore`.
+
 ## Usage
 
 ### Bootstrap
