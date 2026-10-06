@@ -1,5 +1,7 @@
 # Terraform OCI Infrastructure
 
+[![Terraform CI](https://github.com/salyukroman/terraform-oci_oracle/actions/workflows/terraform-ci.yml/badge.svg)](https://github.com/salyukroman/terraform-oci_oracle/actions/workflows/terraform-ci.yml)
+
 Infrastructure as Code project for managing an existing Oracle Cloud Infrastructure environment with Terraform.
 
 The project was built around a live OCI environment and gradually migrated under Terraform management without recreating production resources.
