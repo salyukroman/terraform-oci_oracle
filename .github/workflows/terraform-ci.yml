@@ -19,8 +19,22 @@ jobs:
         with:
           terraform_version: 1.16.5
 
+      - name: Setup TFLint
+        uses: terraform-linters/setup-tflint@v4
+
       - name: Terraform format check
         run: terraform fmt -check -recursive
+
+      - name: Initialize TFLint
+        run: tflint --init
+
+      - name: TFLint bootstrap
+        working-directory: bootstrap
+        run: tflint
+
+      - name: TFLint infrastructure
+        working-directory: infrastructure
+        run: tflint
 
       - name: Initialize bootstrap
         working-directory: bootstrap
