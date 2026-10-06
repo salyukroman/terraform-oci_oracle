@@ -21,3 +21,17 @@ repos:
         language: system
         pass_filenames: false
         files: ^infrastructure/.*\.tf$
+
+      - id: terraform-validate-bootstrap
+        name: Terraform validate bootstrap
+        entry: bash -c 'cd bootstrap && terraform init -backend=false >/dev/null && terraform validate'
+        language: system
+        pass_filenames: false
+        files: ^bootstrap/.*\.tf$
+
+      - id: terraform-validate-infrastructure
+        name: Terraform validate infrastructure
+        entry: bash -c 'cd infrastructure && terraform init -backend=false >/dev/null && terraform validate'
+        language: system
+        pass_filenames: false
+        files: ^infrastructure/.*\.tf$
