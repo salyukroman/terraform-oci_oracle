@@ -167,4 +167,20 @@ Before committing infrastructure changes:
 3. Review `terraform plan`.
 4. Commit only after confirming the planned changes are expected.
 
-This repository uses protected branches and CI checks before merging changes into main.
+## CI/CD and Security
+
+This repository uses a protected-branch workflow with automated validation before changes are merged into `main`.
+
+Pull requests are checked with GitHub Actions and include:
+
+- `terraform fmt -check` for formatting consistency
+- TFLint for Terraform linting
+- `terraform validate` for configuration validation
+- Trivy config scanning for HIGH and CRITICAL misconfigurations
+- Dependabot for automated GitHub Actions dependency updates
+
+Local pre-commit hooks run Terraform formatting, TFLint, and validation checks before commits are created.
+
+The `main` branch is protected and requires successful CI checks before merge.
+
+No CI workflow performs `terraform apply` or modifies the live OCI infrastructure.
