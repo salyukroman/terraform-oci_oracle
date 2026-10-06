@@ -6,6 +6,33 @@ The project was built around a live OCI environment and gradually migrated under
 
 ## Architecture
 
+```mermaid
+flowchart TD
+    OCI["Oracle Cloud Infrastructure"]
+
+    VCN["VCN: n8n-network"]
+    IGW["Internet Gateway"]
+    RT["Route Table"]
+    SL["Security List"]
+    DHCP["DHCP Options"]
+    SUBNET["Public Subnet"]
+    VM["Compute Instance<br/>VM.Standard.A1.Flex<br/>Ubuntu Server"]
+
+    OCI --> VCN
+
+    VCN --> IGW
+    VCN --> RT
+    VCN --> SL
+    VCN --> DHCP
+    VCN --> SUBNET
+
+    RT --> IGW
+    SUBNET --> RT
+    SUBNET --> SL
+    SUBNET --> DHCP
+    SUBNET --> VM
+```
+
 Oracle Cloud Infrastructure
 - VCN: n8n-network
   - Internet Gateway
