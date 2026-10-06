@@ -1,0 +1,23 @@
+repos:
+  - repo: local
+    hooks:
+      - id: terraform-fmt
+        name: Terraform format check
+        entry: terraform fmt -check -recursive
+        language: system
+        pass_filenames: false
+        files: \.tf$
+
+      - id: tflint-bootstrap
+        name: TFLint bootstrap
+        entry: bash -c 'cd bootstrap && tflint --config=../.tflint.hcl'
+        language: system
+        pass_filenames: false
+        files: ^bootstrap/.*\.tf$
+
+      - id: tflint-infrastructure
+        name: TFLint infrastructure
+        entry: bash -c 'cd infrastructure && tflint --config=../.tflint.hcl'
+        language: system
+        pass_filenames: false
+        files: ^infrastructure/.*\.tf$
