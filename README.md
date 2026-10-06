@@ -98,7 +98,7 @@ Expected result:
 
 - `bootstrap/` — creates and manages the Object Storage backend resources
 - `infrastructure/` — manages the OCI compute and network infrastructure
-- `.gitignore` — excludes Terraform state, local variables, provider cache, and private keys
+- `.gitignore` — excludes Terraform state, local variables, provider cache, and private keys
 
 ## Validation Workflow
 
