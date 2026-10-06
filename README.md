@@ -166,3 +166,5 @@ Before committing infrastructure changes:
 2. Run `terraform validate` in each Terraform directory.
 3. Review `terraform plan`.
 4. Commit only after confirming the planned changes are expected.
+
+This repository uses protected branches and CI checks before merging changes into main.
