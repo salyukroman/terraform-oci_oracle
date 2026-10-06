@@ -22,6 +22,14 @@ jobs:
       - name: Setup TFLint
         uses: terraform-linters/setup-tflint@v4
 
+      - name: Trivy config scan
+        uses: aquasecurity/trivy-action@master
+        with:
+          scan-type: config
+          scan-ref: .
+          severity: HIGH,CRITICAL
+          exit-code: 0
+
       - name: Terraform format check
         run: terraform fmt -check -recursive
 
