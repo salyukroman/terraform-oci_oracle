@@ -20,7 +20,7 @@ jobs:
           terraform_version: 1.16.5
 
       - name: Setup TFLint
-        uses: terraform-linters/setup-tflint@v4
+        uses: terraform-linters/setup-tflint@v6
 
       - name: Trivy config scan
         uses: aquasecurity/trivy-action@master
