@@ -100,6 +100,49 @@ Expected result:
 - `infrastructure/` — manages the OCI compute and network infrastructure
 - `.gitignore` — excludes Terraform state, local variables, provider cache, and private keys
 
+## Prerequisites
+
+Before using this project, make sure you have:
+
+- Terraform installed
+- An Oracle Cloud Infrastructure account
+- OCI API credentials configured in `~/.oci/config`
+- Access to the target OCI compartment
+- SSH access to the managed server
+- Git installed
+
+The OCI provider uses the `DEFAULT` profile from the local OCI configuration.
+
+## Usage
+
+### Bootstrap
+
+The `bootstrap/` directory is used to create and manage the OCI Object Storage bucket used for Terraform remote state.
+
+```bash
+cd bootstrap
+terraform init
+terraform validate
+terraform plan
+terraform apply
+```
+
+### Infrastructure
+
+The `infrastructure/` directory manages the main OCI network and compute resources.
+
+```bash
+cd infrastructure
+terraform init
+terraform validate
+terraform plan
+terraform apply
+```
+
+Always review the output of `terraform plan` before running `terraform apply`.
+
+For this project, imported production-like resources are protected with lifecycle safeguards where appropriate, and destructive changes should be reviewed carefully before applying.
+
 ## Validation Workflow
 
 Before committing infrastructure changes:
