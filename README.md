@@ -33,17 +33,6 @@ flowchart TD
     SUBNET --> VM
 ```
 
-Oracle Cloud Infrastructure
-- VCN: n8n-network
-  - Internet Gateway
-  - Route Table
-  - Security List
-  - DHCP Options
-  - Public Subnet
-- Compute Instance
-  - VM.Standard.A1.Flex
-  - Ubuntu Server
-
 ## Managed Resources
 
 Terraform currently manages:
